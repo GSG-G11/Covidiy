@@ -2,10 +2,9 @@ const searchInput = document.querySelector('#country');
 const suggestionsDatalist = document.querySelector('#suggestions');
 // const searchForm = document.querySelector('search-form');
 
-function getData(url, callback) {
-  console.log(url);
+const getData = (url, callback) => {
   const xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function () {
+  xhr.onreadystatechange = () => {
     if (xhr.readyState === 4) {
       switch (xhr.status) {
         case 200:
@@ -21,22 +20,25 @@ function getData(url, callback) {
           console.log('404 error => requested data not found');
           break;
         default:
-          console.log(`Sorry, our service at ${url} not a available at the momen. we will back soon`);
+          console.log(
+            `Sorry, our service at ${url} not a available at the moment. we will back soon`
+          );
       }
     }
   };
   xhr.open('GET', url);
   xhr.send();
-}
-function handleSuggestions(suggestionsArr) {
+};
+
+const handleSuggestions = (suggestionsArr) => {
   suggestionsDatalist.innerHTML = '';
   suggestionsArr.forEach((suggestion) => {
     const suggestionOption = document.createElement('option');
     suggestionOption.value = suggestion;
     suggestionsDatalist.appendChild(suggestionOption);
   });
-}
-function handleInput() {
-  getData(`${window.location}?q=${searchInput.value}`, handleSuggestions);
-}
-searchInput.addEventListener('input', handleInput);
+};
+
+searchInput.addEventListener('input', () => {
+  getData(`${window.location}suggest/${searchInput.value}`, handleSuggestions);
+});
