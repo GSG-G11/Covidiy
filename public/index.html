@@ -20,7 +20,12 @@
       referrerpolicy="no-referrer"
     />
     <!-- Shortcut Icon -->
-    <link rel="icon" href="./assets/images/logo.png" />
+    <link rel="preload" href="./assets/images/favicon.ico" as="image" />
+    <link
+      rel="icon"
+      type="image/vnd.microsoft.icon"
+      href="./assets/images/favicon.ico"
+    />
     <!-- Main CSS File -->
     <link rel="stylesheet" href="./style.css" />
     <title>Covidiy</title>
@@ -33,11 +38,7 @@
           Search a Country
           <input list="suggestions" name="country" id="country" />
         </label>
-        <datalist id="suggestions">
-          <option value="Egg"></option>
-          <option value="Egg"></option>
-          <option value="zaher"></option>
-        </datalist>
+        <datalist id="suggestions"></datalist>
         <button>Submit</button>
       </form>
       <div class="card-wrapper">

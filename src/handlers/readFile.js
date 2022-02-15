@@ -7,6 +7,7 @@ const contentType = {
   css: 'text/css',
   js: 'text/javascript',
   json: 'application/json',
+  ico: 'image/vnd.microsoft.icon',
 };
 
 const readFile = (res, file) => {
