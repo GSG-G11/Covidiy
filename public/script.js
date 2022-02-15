@@ -1,0 +1,42 @@
+const searchInput = document.querySelector('#country');
+const suggestionsDatalist = document.querySelector('#suggestions');
+// const searchForm = document.querySelector('search-form');
+
+function getData(url, callback) {
+  console.log(url);
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      switch (xhr.status) {
+        case 200:
+          try {
+            const response = JSON.parse(xhr.responseText);
+            callback(response);
+          } catch (e) {
+            console.log(e);
+            callback(['wrong data type', 'test enter #1', 100, 101, 102, 103]);
+          }
+          break;
+        case 404:
+          console.log('404 error => requested data not found');
+          break;
+        default:
+          console.log(`Sorry, our service at ${url} not a available at the momen. we will back soon`);
+      }
+    }
+  };
+  xhr.open('GET', url);
+  xhr.send();
+}
+function handleSuggestions(suggestionsArr) {
+  suggestionsDatalist.innerHTML = '';
+  suggestionsArr.forEach((suggestion) => {
+    const suggestionOption = document.createElement('option');
+    suggestionOption.value = suggestion;
+    suggestionsDatalist.appendChild(suggestionOption);
+  });
+}
+function handleInput() {
+  getData(`${window.location}?q=${searchInput.value}`, handleSuggestions);
+}
+searchInput.addEventListener('input', handleInput);
