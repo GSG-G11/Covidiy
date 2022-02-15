@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Fonts (Poppins) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Shortcut Icon -->
+    <link rel="icon" href="./assets/images/logo.png" />
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="./style.css" />
+    <title>Covidiy</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Covidiy</h1>
+      <form action="/search" method="POST">
+        <label for="country">
+          Search a Country
+          <input list="suggestions" name="country" id="country" />
+        </label>
+        <datalist id="suggestions">
+          <option value="Egg"></option>
+          <option value="Egg"></option>
+          <option value="zaher"></option>
+        </datalist>
+        <button>Submit</button>
+      </form>
+      <div class="card-wrapper">
+        <div class="card">
+          <h3>Country Data</h3>
+          <div class="ul-wrapper">
+            <ul>
+              <li>Country: <span class="list-data">Palestine</span></li>
+              <li>Confirmed: <span class="list-data">600128</span></li>
+              <li>Deaths: <span class="list-data">5215</span></li>
+              <li>Recovered: <span class="list-data">0</span></li>
+              <li>Active: <span class="list-data">594913</span></li>
+              <li>Date: <span class="list-data">2022-02-14T00:00:00Z</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
