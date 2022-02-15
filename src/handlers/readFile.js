@@ -7,11 +7,12 @@ const contentType = {
   css: 'text/css',
   js: 'text/javascript',
   json: 'application/json',
+  ico: 'image/vnd.microsoft.icon',
 };
 
 const readFile = (res, file) => {
   const filePath = path.join(__dirname, '../../public/', file);
-  fs.readFile(filePath, 'utf-8', (err, data) => {
+  fs.readFile(filePath, (err, data) => {
     if (err) serverErr(res);
     else {
       const fileName = file.split('.').pop();

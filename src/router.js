@@ -15,6 +15,9 @@ const router = (req, res) => {
       case '/script.js':
         readFile(res, endpoint);
         break;
+      case '/favicon.ico':
+        readFile(res, endpoint);
+        break;
       case `/suggest/${searchTerm}`:
         getSuggestions(res, searchTerm);
         break;
