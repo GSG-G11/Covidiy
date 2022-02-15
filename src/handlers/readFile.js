@@ -12,7 +12,7 @@ const contentType = {
 
 const readFile = (res, file) => {
   const filePath = path.join(__dirname, '../../public/', file);
-  fs.readFile(filePath, 'utf-8', (err, data) => {
+  fs.readFile(filePath, (err, data) => {
     if (err) serverErr(res);
     else {
       const fileName = file.split('.').pop();
