@@ -24,7 +24,7 @@ const router = (req, res) => {
         getSuggestions(res, searchTerm);
         break;
       case '/lastSearch.json':
-        readFile(res, '/handers/lastSearch.json');
+        readFile(res, '../src/lastSearch.json');
         break;
       default:
         serverErr(res);
