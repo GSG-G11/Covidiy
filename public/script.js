@@ -1,8 +1,8 @@
 const searchInput = document.querySelector('#country');
 const suggestionsDatalist = document.querySelector('#suggestions');
-// const searchForm = document.querySelector('search-form');
+const searchForm = document.querySelector('#search-form');
 
-const getData = (url, callback) => {
+const xhrUni = (method) => (url, callback, data) => {
   const xhr = new XMLHttpRequest();
   xhr.onreadystatechange = () => {
     if (xhr.readyState === 4) {
@@ -26,9 +26,11 @@ const getData = (url, callback) => {
       }
     }
   };
-  xhr.open('GET', url);
-  xhr.send();
+  xhr.open(method, url);
+  xhr.send(data);
 };
+const getData = xhrUni('GET');
+const postData = xhrUni('POST');
 
 const handleSuggestions = (suggestionsArr) => {
   suggestionsDatalist.innerHTML = '';
@@ -58,8 +60,11 @@ const handleLastSearchData = ({
   DeathsSpan.textContent = Deaths;
   RecoveredSpan.textContent = Recovered;
   ActiveSpan.textContent = Active;
-  DateSpan.textContent = Date.slice(0, 10);
+  DateSpan.textContent = Date?.slice(0, 10);
 };
 
 // load last server search json file
-getData(`${window.location}lastSearch.json`, handleLastSearchData);
+searchForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  postData(`${window.location}search`, handleLastSearchData, `country=${searchInput.value}`);
+});
