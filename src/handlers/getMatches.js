@@ -1,6 +1,6 @@
 const getMatches = (countriesArr, searchTerm) => countriesArr.reduce((acc, cur) => {
-  if (cur.name.toLowerCase().includes(searchTerm.toLowerCase())) {
-    acc.push(cur.name);
+  if (cur.toLowerCase().includes(searchTerm.toLowerCase())) {
+    acc.push(cur);
   }
   return acc;
 }, []);

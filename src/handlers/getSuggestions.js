@@ -9,8 +9,8 @@ const getSuggestions = (res, searchTerm) => {
   fs.readFile(filePath, (err, data) => {
     if (err) serverErr(res);
     else {
-      const countriesArr = JSON.parse(data);
-      const suggestions = getMatches(countriesArr, searchTerm);
+      const countriesObj = JSON.parse(data);
+      const suggestions = getMatches(Object.keys(countriesObj), searchTerm);
       res.end(JSON.stringify(suggestions));
     }
   });
