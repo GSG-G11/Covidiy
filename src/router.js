@@ -21,7 +21,7 @@ const router = (req, res) => {
         readFile(res, endpoint);
         break;
       case `/suggest/${searchTerm}`:
-        getSuggestions(res, searchTerm);
+        getSuggestions(res, decodeURI(searchTerm));
         break;
       case '/lastSearch.json':
         readFile(res, '../src/lastSearch.json');
