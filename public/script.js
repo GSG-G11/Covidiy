@@ -45,26 +45,26 @@ searchInput.addEventListener('input', () => {
   getData(`${window.location}suggest/${searchInput.value}`, handleSuggestions);
 });
 
-const handleLastSearchData = ({
+const handleSearchData = ({
   Country, Confirmed, Deaths, Recovered, Active, Date,
 }) => {
-  const CountrySpan = document.querySelector('#country-name');
-  const ConfirmedSpan = document.querySelector('#confirmed');
-  const DeathsSpan = document.querySelector('#deaths');
-  const RecoveredSpan = document.querySelector('#recoverd');
-  const ActiveSpan = document.querySelector('#active');
-  const DateSpan = document.querySelector('#date');
+  const countrySpan = document.querySelector('#country-name');
+  const confirmedSpan = document.querySelector('#confirmed');
+  const deathsSpan = document.querySelector('#deaths');
+  const recoveredSpan = document.querySelector('#recoverd');
+  const activeSpan = document.querySelector('#active');
+  const dateSpan = document.querySelector('#date');
 
-  CountrySpan.textContent = Country;
-  ConfirmedSpan.textContent = Confirmed;
-  DeathsSpan.textContent = Deaths;
-  RecoveredSpan.textContent = Recovered;
-  ActiveSpan.textContent = Active;
-  DateSpan.textContent = Date?.slice(0, 10);
+  countrySpan.textContent = Country;
+  confirmedSpan.textContent = Confirmed;
+  deathsSpan.textContent = Deaths;
+  recoveredSpan.textContent = Recovered;
+  activeSpan.textContent = Active;
+  dateSpan.textContent = Date?.slice(0, 10);
 };
 
 // load last server search json file
 searchForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  postData(`${window.location}search`, handleLastSearchData, `country=${searchInput.value}`);
+  postData(`${window.location}search`, handleSearchData, `country=${searchInput.value}`);
 });
