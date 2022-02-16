@@ -43,5 +43,23 @@ searchInput.addEventListener('input', () => {
   getData(`${window.location}suggest/${searchInput.value}`, handleSuggestions);
 });
 
+const handleLastSearchData = ({
+  Country, Confirmed, Deaths, Recovered, Active, Date,
+}) => {
+  const CountrySpan = document.querySelector('#country-name');
+  const ConfirmedSpan = document.querySelector('#confirmed');
+  const DeathsSpan = document.querySelector('#deaths');
+  const RecoveredSpan = document.querySelector('#recoverd');
+  const ActiveSpan = document.querySelector('#active');
+  const DateSpan = document.querySelector('#date');
+
+  CountrySpan.textContent = Country;
+  ConfirmedSpan.textContent = Confirmed;
+  DeathsSpan.textContent = Deaths;
+  RecoveredSpan.textContent = Recovered;
+  ActiveSpan.textContent = Active;
+  DateSpan.textContent = Date.slice(0, 10);
+};
+
 // load last server search json file
-getData(`${window.location}lastSearch.json`, console.log);
+getData(`${window.location}lastSearch.json`, handleLastSearchData);
