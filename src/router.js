@@ -1,4 +1,3 @@
-const fs = require('fs');
 const getSuggestions = require('./handlers/getSuggestions');
 const pageNotFound = require('./handlers/pageNotFound');
 const readFile = require('./handlers/readFile');
@@ -22,9 +21,7 @@ const router = (req, res) => {
         readFile(res, endpoint);
         break;
       case `/suggest/${searchTerm}`:
-        getSuggestions(res, searchTerm);
-        break;
-      case '/status':
+        getSuggestions(res, decodeURI(searchTerm));
         break;
       default:
         serverErr(res);

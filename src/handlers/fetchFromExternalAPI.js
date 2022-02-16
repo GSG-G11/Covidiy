@@ -1,7 +1,4 @@
 const https = require('https');
-const path = require('path');
-const fs = require('fs');
-const serverErr = require('./serverErr');
 
 const fetchFromExternalApi = (res, externalApiURL) => {
   https.get(externalApiURL, (response) => {
@@ -11,17 +8,12 @@ const fetchFromExternalApi = (res, externalApiURL) => {
     });
 
     response.on('end', () => {
-      const lasSearchFilePath = path.join(__dirname, '..', 'lastSearch.json');
       const parsedExternalApiData = JSON.parse(externalApiData);
-      const lastCountryData = JSON.stringify(parsedExternalApiData.pop());
-
-      fs.writeFile(lasSearchFilePath, lastCountryData, (writeErr) => {
-        if (writeErr) serverErr(res);
-        else {
-          res.writeHead(303, { Location: '/' });
-          res.end();
-        }
-      });
+      const notFound = {
+        Country: 'Not Found', Confirmed: '', Deaths: '', Recovered: '', Active: '', Date: '',
+      };
+      const lastCountryData = parsedExternalApiData.message === 'Not Found' ? JSON.stringify(notFound) : JSON.stringify(parsedExternalApiData.pop());
+      res.end(lastCountryData);
     });
   }).on('error', (httpErr) => {
     console.log(`Error: ${httpErr.message}`);

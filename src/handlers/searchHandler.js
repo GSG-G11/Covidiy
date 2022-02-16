@@ -18,7 +18,6 @@ const searchHandler = (req, res) => {
         const countriesApiKeysObj = JSON.parse(data);
         const searchTermObj = Object.fromEntries(new URLSearchParams(allData));
         const { country } = searchTermObj;
-
         const time = getDateBeforeOneMonth();
         const externalApiURL = `https://api.covid19api.com/country/${countriesApiKeysObj[country]}?from=${time}`;
 
