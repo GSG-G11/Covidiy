@@ -21,7 +21,7 @@ const getData = (url, callback) => {
           break;
         default:
           console.log(
-            `Sorry, our service at ${url} not a available at the moment. we will back soon`
+            `Sorry, our service at ${url} not a available at the moment. we will back soon`,
           );
       }
     }
@@ -42,3 +42,6 @@ const handleSuggestions = (suggestionsArr) => {
 searchInput.addEventListener('input', () => {
   getData(`${window.location}suggest/${searchInput.value}`, handleSuggestions);
 });
+
+// load last server search json file
+getData(`${window.location}lastSearch.json`, console.log);
