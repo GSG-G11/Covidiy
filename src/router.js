@@ -23,9 +23,6 @@ const router = (req, res) => {
       case `/suggest/${searchTerm}`:
         getSuggestions(res, decodeURI(searchTerm));
         break;
-      case '/lastSearch.json':
-        readFile(res, '../src/lastSearch.json');
-        break;
       default:
         serverErr(res);
     }
