@@ -41,8 +41,10 @@ const handleSuggestions = (suggestionsArr) => {
   });
 };
 
+const capitalizeFirstLetterOfEveryWord = (str) => str.split(' ').map((e) => (e[0].toUpperCase() + e.slice(1).toLowerCase())).join(' ');
+
 searchInput.addEventListener('input', () => {
-  getData(`${window.location}suggest/${searchInput.value}`, handleSuggestions);
+  getData(`${window.location}suggest/${capitalizeFirstLetterOfEveryWord(searchInput.value)}`, handleSuggestions);
 });
 
 const handleSearchData = ({
@@ -66,5 +68,5 @@ const handleSearchData = ({
 // load last server search json file
 searchForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  postData(`${window.location}search`, handleSearchData, `country=${searchInput.value}`);
+  postData(`${window.location}search`, handleSearchData, `country=${capitalizeFirstLetterOfEveryWord(searchInput.value)}`);
 });
