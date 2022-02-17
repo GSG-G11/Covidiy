@@ -1,7 +1,6 @@
 const getSuggestions = require('./handlers/getSuggestions');
 const pageNotFound = require('./handlers/pageNotFound');
 const readFile = require('./handlers/readFile');
-const serverErr = require('./handlers/serverErr');
 const searchHandler = require('./handlers/searchHandler');
 
 const router = (req, res) => {
@@ -24,7 +23,7 @@ const router = (req, res) => {
         getSuggestions(res, decodeURI(searchTerm));
         break;
       default:
-        serverErr(res);
+        pageNotFound(res);
     }
   } else if (method === 'POST') {
     if (endpoint === '/search') {
