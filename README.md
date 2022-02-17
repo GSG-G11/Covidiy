@@ -6,19 +6,27 @@
 ## Table of Contents
 - [Problem](#problem)
 - [Solution](#solution)
+- [Features](#features)
 - [User Stories](#user-stories)
 - [User Journey](#user-journey)
 - [Technologies Used](#technologies-used)
-- [Features](#features)
+- [API](#api)
 - [Screenshots](#screenshots)
 - [Setup](#setup)
 - [Contact](#contact)
 
 ## Problem <span id="problem"></span>
-- know Covid-19 status - with Confirmed, Deaths, Recovered, and Active numbers - for all countries in the world.
+- It is difficult to find information about the COVID-19 virus and search websites for the latest updates on the disease.
+- Many people are not following and ignoring the rules of COVID-19.
 
 ## Solution <span id="solution"></span>
-- Develop a website that give us the ability to search for Covid-19 status across the world.
+- Develop a website that give us the ability to search for Covid-19 status across the world, with information about the number of total infections, active cases, total recovery cases and total deaths.
+
+## Features <span id="features"></span>
+- Simple UI.
+- Responsive.
+- Fetch data from Backend.
+- Handle user errors and server errors.
 
 ## User Stories <span id="user-stories"></span>
 - As a user, I want to search for a country's Covid-19 status.
@@ -35,13 +43,9 @@
 - CSS3
 - JavaScript
 - Node.js
-- Heroku
 
-## Features <span id="features"></span>
-- Simple UI.
-- Responsive.
-- Fetch data from Backend.
-- Handle user errors and server errors.
+## External API <span id="api"></span>
+- `Covidiy` uses [covid19api](https://covid19api.com/)
 
 ## Screenshots <span id="screenshots"></span>
 - Search Field
@@ -54,22 +58,19 @@
 
 
 
-## Setup
+## Setup <span id="setup"></span>
 ### Dev Dependencies
-- jest
 - eslint
 - nodemon
 
 ### Dependencies
 - evn2
 
-## Installation
+## Installation <span id="installation"></span>
 - clone this repository `git clone https://github.com/GSG-G11/Covidiy.git`
 - open it with your favorite text editor `code Covidiy/`
 - run `npm i` to install dependencies
 - run `npm run dev` to start the project in the localhost
 
-## Contact
+## Contact <span id="contact"></span>
 Created by [@zaher-aa](https://github.com/zaher-aa), [@Ibrahim-Jarada](https://github.com/Ibrahim-Jarada) - feel free to contact us!
-
-
