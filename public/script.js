@@ -41,7 +41,7 @@ const handleSuggestions = (suggestionsArr) => {
   });
 };
 
-const capitalizeFirstLetterOfEveryWord = (str) => str.split(' ').map((e) => (e[0].toUpperCase() + e.slice(1).toLowerCase())).join(' ');
+const capitalizeFirstLetterOfEveryWord = (str) => str.trim().split(' ').map((e) => (e[0].toUpperCase() + e.slice(1).toLowerCase())).join(' ');
 
 searchInput.addEventListener('input', () => {
   getData(`${window.location}suggest/${capitalizeFirstLetterOfEveryWord(searchInput.value)}`, handleSuggestions);
